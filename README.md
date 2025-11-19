@@ -133,3 +133,5 @@
 ![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/email%20from%20shuffle.png?raw=true)
 
 ###
+
+<h4 align="left">Skills Learned:</h4>
