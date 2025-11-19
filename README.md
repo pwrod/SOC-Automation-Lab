@@ -26,7 +26,7 @@
 
 ###
 
-<p align="left">🔗 https://www.virtualbox.org/wiki/Downloads</p>
+<p align="left">https://www.virtualbox.org/wiki/Downloads</p>
 
 ###
 
@@ -42,7 +42,7 @@
 
 ###
 
-<p align="left">🔗 https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon</p>
+<p align="left">https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon</p>
 
 ###
 
@@ -58,7 +58,7 @@
 
 ###
 
-<p align="left">🔗 https://documentation.wazuh.com/current/installation-guide/index.html</p>
+<p align="left">https://documentation.wazuh.com/current/installation-guide/index.html</p>
 
 ###
 
@@ -74,7 +74,7 @@
 
 ###
 
-<p align="left">🔗 https://docs.strangebee.com/thehive/installation/installation-guide-linux-standalone-server/</p>
+<p align="left">https://docs.strangebee.com/thehive/installation/installation-guide-linux-standalone-server/</p>
 
 ###
 
@@ -94,7 +94,7 @@
 
 ###
 
-<h4 align="left">Install latest mimikatz release: 🔗 https://github.com/gentilkiwi/mimikatz/releases</h4>
+<h4 align="left">Install latest mimikatz release: https://github.com/gentilkiwi/mimikatz/releases</h4>
 
 ###
 
