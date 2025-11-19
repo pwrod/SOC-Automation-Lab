@@ -86,7 +86,7 @@
 
 ###
 
-<h4 align="left">[image of windows wazuh agent]</h4>
+![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/Wazuh%20Agent.png?raw=true)
 
 ###
 
