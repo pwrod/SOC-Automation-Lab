@@ -130,6 +130,6 @@
 
 ###
 
-![image alt]()
+![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/email%20from%20shuffle.png?raw=true)
 
 ###
