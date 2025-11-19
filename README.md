@@ -38,7 +38,7 @@
 
 ###
 
-<h4 align="left">Install and Configure Sysmon</h4>
+<p align="left">Install and Configure Sysmon</h4>
 
 ###
 
@@ -78,7 +78,7 @@
 
 ###
 
-<h4 align="left">Install and Configure TheHive, Cassandra, and Elasticsearch</h4>
+<p align="left">Install and Configure TheHive, Cassandra, and Elasticsearch</h4>
 
 ###
 
