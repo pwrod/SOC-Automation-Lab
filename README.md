@@ -118,7 +118,7 @@
 
 ###
 
-<p align="left">[Image of shuffle workflow]</p>
+![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/shuffle%20workflow.png?raw=true)
 
 ###
 
