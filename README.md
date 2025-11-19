@@ -106,7 +106,7 @@
 
 ###
 
-<p align="left">[image of mimikatz alert]</p>
+![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/mimikatz%20alert.png?raw=true)
 
 ###
 
