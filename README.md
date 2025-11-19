@@ -126,10 +126,10 @@
 
 ###
 
-<p align="left">[image of thehive alert]</p>
+![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/the%20hive%20alert.png?raw=true)
 
 ###
 
-<p align="left">[image of email from shuffle]</p>
+![image alt]()
 
 ###
