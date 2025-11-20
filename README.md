@@ -1,137 +1,148 @@
-<h2 align="left">SOC-Automation-Lab</h2>
+# SOC Automation Lab  
+A hands-on Security Operations Center (SOC) lab designed to simulate real-world detection, alerting, enrichment, and automation workflows. This project integrates Wazuh, Sysmon, TheHive, Shuffle SOAR, and the VirusTotal API to create a fully functional automated incident response pipeline.
 
-###
+---
 
-<h3 align="left">📃Project Description:</h3>
+## 📌 Overview  
+This lab demonstrates how to build and automate a modern SOC workflow from scratch. It includes:
 
-###
+- Collecting and enriching Windows endpoint telemetry using Sysmon  
+- Detecting malicious activity with Wazuh  
+- Automating enrichment and case creation with Shuffle  
+- Integrating VirusTotal for threat intelligence  
+- Managing alerts and cases with TheHive  
+- Triggering analyst notifications via email  
 
-<h6 align="left">📌Enrich logs with Sysmon<br>📌Receive alerts from Wazuh<br>📌Utilize TheHive case management<br>📌Create a shuffle workflow for email notifications</h6>
+The project simulates an end-to-end incident lifecycle — from initial detection to automated triage and case creation.
 
-###
+---
 
-<h3 align="left">🛠️Tools:</h3>
+## 🧱 Lab Architecture  
 
-###
+**Virtual Machines Used:**
 
-<h6 align="left">VirtualBox: Install and run various operating systems on a host machine.<br><br>Sysmon: Windows system service and device driver that logs system activity.<br><br>Wazuh: (SIEM) platform designed for threat detection, log analysis, and incident response.<br><br>TheHive: open-source Security Incident Response Platform.<br><br>Shuffle: A platform for building and executing automation workflows.<br><br>VirusTotal API:  interact with VirusTotal's extensive database of malware samples.</h6>
+- **Windows 11 VM**  
+  - Sysmon installed for enriched telemetry  
+  - Wazuh agent installed for log forwarding  
+  - Used to generate alerts (e.g., by running Mimikatz)
 
-###
+- **Wazuh Server (Ubuntu 24.04 LTS)**  
+  - Handles log ingestion, rules, and alerting  
+  - Receives Sysmon logs from the Windows endpoint  
+  - Provides alert payloads to Shuffle SOAR
 
-<h3 align="left">📃Steps:</h3>
+- **TheHive Server (Ubuntu 24.04 LTS)**  
+  - Manages case creation and incident tracking  
+  - Receives automated alerts from Shuffle  
+  - Utilizes Elasticsearch and Cassandra
 
-###
+- **Shuffle SOAR Platform**  
+  - Serves as the automation engine  
+  - Extracts hashes from alerts  
+  - Queries VirusTotal  
+  - Creates alerts in TheHive  
+  - Sends email notifications
 
-<h4 align="left">VirtualBox Install:</h4>
+---
 
-###
+## 🔄 Workflow: End-to-End Automation  
+The core automation pipeline performs the following sequence:
 
-<p align="left">https://www.virtualbox.org/wiki/Downloads</p>
+1. **Wazuh detects malicious activity** (e.g., Mimikatz execution)  
+2. **Shuffle receives the alert** via webhook  
+3. **Regex node extracts the SHA-256 hash** from the alert payload  
+4. **VirusTotal API is queried** for threat intelligence  
+5. **TheHive case is automatically created**  
+6. **Email notification is sent** to the SOC analyst  
+7. **Analyst reviews case in TheHive** with enriched intel
 
-###
+![Image Alt](https://github.com/pwrod/chat-gpt-test/blob/main/images/shuffle%20workflow.png?raw=true)
 
-<h4 align="left">Create Windows 11 VM</h4>
+This replicates a realistic SOC enrichment and triage process.
 
-###
+---
 
-<p align="left">RAM: 4GB+<br>SSD: 80GB+</p>
+## 🛠️ Tools & Technologies
 
-###
+- **Wazuh** – SIEM for log analysis, detection, and alerting  
+- **Sysmon** – Windows telemetry collection  
+- **TheHive** – Security incident response and case management  
+- **Shuffle** – No-code SOAR platform for automated workflows  
+- **VirusTotal API** – External threat intelligence enrichment  
+- **VirtualBox** – Virtualization platform for running the lab  
+- **Ubuntu 24.04 LTS / Windows 11** – Operating systems for the environment  
 
-<p align="left">Install and Configure Sysmon</h4>
+---
 
-###
+## 🚨 Alert Simulation  
+To validate detection and automation:
 
-<p align="left">https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon</p>
+- Windows Defender was disabled  
+- Mimikatz was executed on the Windows VM to generate malicious behavior  
+- A custom Wazuh rule was created to detect the activity  
+- Verified that logs were forwarded, parsed, and triggered the SOAR workflow
+![image alt](https://github.com/pwrod/chat-gpt-test/blob/main/images/the%20hive%20alert.png?raw=true)
 
-###
+This ensured realistic detection and incident generation.
 
-<h4 align="left">VM for Wazuh</h4>
+---
 
-###
+## 🧠 Skills Learned  
 
-<p align="left">RAM: 8GB+<br>SSD: 30GB+<br>OS: Ubuntu 24.04 LTS</p>
+- **Security Event Monitoring & SIEM Configuration**  
+  - Implemented log collection and analysis using Wazuh Manager and Wazuh Agents  
+  - Created custom detection rules for malicious activity  
+  - Forwarded enriched Sysmon logs for deep visibility  
 
-###
+- **Endpoint Telemetry & Logging Configuration**  
+  - Installed and tuned Sysmon to capture process, network, and file events  
+  - Improved signal-to-noise ratio by customizing event collection  
 
-<h4 align="left">Install Wazuh</h4>
+- **Security Automation & SOAR Workflows**  
+  - Built automated workflows in Shuffle integrating Wazuh, VirusTotal, and TheHive  
+  - Extracted hashes using regex and automated enrichment with VirusTotal  
+  - Implemented automated notifications and case creation to accelerate response  
 
-###
+- **Incident Response Practices**  
+  - Managed alerts and structured cases within TheHive  
+  - Enriched events with threat intelligence for faster triage  
+  - Learned key components of the detection → analysis → response lifecycle  
 
-<p align="left">https://documentation.wazuh.com/current/installation-guide/index.html</p>
+- **Threat Intelligence Integration**  
+  - Queried VirusTotal via API to gather malware data  
+  - Automated VirusTotal enrichment as part of the triage workflow  
 
-###
+- **Virtualization & Lab Architecture**  
+  - Built a multi-VM SOC lab environment using VirtualBox  
+  - Configured Ubuntu and Windows systems for production-like SIEM/SOAR usage  
 
-<h4 align="left">VM for TheHive</h4>
+- **Adversary Simulation & Testing**  
+  - Used Mimikatz to generate realistic malicious events  
+  - Verified detection accuracy and end-to-end automation functionality  
 
-###
+- **API Usage & Data Parsing**  
+  - Interacted with REST APIs for Wazuh, TheHive, VirusTotal, and Shuffle  
+  - Extracted structured data using regex and JSON parsing techniques  
 
-<p align="left">RAM: 16GB+<br>SSD: 30GB+<br>OS: Ubuntu 24.04 LTS</p>
+---
 
-###
+## 📚 Future Enhancements  
+Potential improvements include:
 
-<h4 align="left">TheHive Install:</h4>
+- Adding Sigma rules for cross-platform detection  
+- Integrating an ELK or OpenSearch dashboard for visualization  
+- Adding an auto-remediation step to isolate compromised hosts  
+- Expanding detections to include ransomware behavior  
 
-###
+---
 
-<p align="left">https://docs.strangebee.com/thehive/installation/installation-guide-linux-standalone-server/</p>
+## 📁 Project Purpose  
+This project demonstrates practical, hands-on cybersecurity skills applicable to:
 
-###
+- SOC Analyst (Tier 1–2) roles  
+- Incident Response  
+- Detection Engineering  
+- Threat Intelligence  
+- Cybersecurity Automation  
 
-<p align="left">Install and Configure TheHive, Cassandra, and Elasticsearch</h4>
-
-###
-
-<h4 align="left">On Windows 11 VM install Wazuh-agent</h4>
-
-###
-
-![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/Wazuh%20Agent.png?raw=true)
-
-###
-
-<p align="left">Disable Windows defender</p>
-
-###
-
-<h4 align="left">Install latest mimikatz release: https://github.com/gentilkiwi/mimikatz/releases</h4>
-
-###
-
-<p align="left">Create custom rule for mimikatz alert on Wazuh</p>
-
-###
-
-<p align="left">Run mimikatz on Windows 11 VM to generate alert in Wazuh</p>
-
-###
-
-![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/mimikatz%20alert.png?raw=true)
-
-###
-
-<h4 align="left">Shuffle Workflow:</h4>
-
-###
-
-<p align="left">Step 1:  Wazuh Alert<br>- Webhook trigger<br>- Configure Wazuh to send alerts via webhook<br><br>Step 2: Regex Capture<br>- Capture the SHA256 hash from Wazuh alert<br><br>Step 3:  VirusTotal API<br>- Receive data from regex capture<br>- Get hash report from virustotal<br><br>Step 4: TheHive<br>- Create new Hive organization with a service and normal account<br>- Connect service account API to shuffle <br>- Use details from Wazuh alert to create TheHive alert<br><br>Step 5: Email<br>- When virustotal node is activated send analyst email</p>
-
-###
-
-![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/shuffle%20workflow.png?raw=true)
-
-###
-
-<h3 align="left">Node Data:</h3>
-
-###
-
-![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/the%20hive%20alert.png?raw=true)
-
-###
-
-![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/email%20from%20shuffle.png?raw=true)
-
-###
-
-<h3 align="left">Skills Learned:</h3>
+It showcases the ability to design, build, and automate a functioning SOC pipeline from scratch.
