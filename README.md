@@ -56,7 +56,7 @@ The core automation pipeline performs the following sequence:
 6. **Email notification is sent** to the SOC analyst  
 7. **Analyst reviews case in TheHive** with enriched intel
 
-![Image Alt](https://github.com/pwrod/chat-gpt-test/blob/main/images/shuffle%20workflow.png?raw=true)
+![Image Alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/shuffle%20workflow.png?raw=true)
 
 This replicates a realistic SOC enrichment and triage process.
 
