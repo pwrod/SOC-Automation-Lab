@@ -81,7 +81,7 @@ To validate detection and automation:
 - Mimikatz was executed on the Windows VM to generate malicious behavior  
 - A custom Wazuh rule was created to detect the activity  
 - Verified that logs were forwarded, parsed, and triggered the SOAR workflow
-![image alt](https://github.com/pwrod/chat-gpt-test/blob/main/images/the%20hive%20alert.png?raw=true)
+![image alt](https://github.com/pwrod/SOC-Automation-Lab/blob/main/images/the%20hive%20alert.png?raw=true)
 
 This ensured realistic detection and incident generation.
 
